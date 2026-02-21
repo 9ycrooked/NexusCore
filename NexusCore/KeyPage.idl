@@ -1,0 +1,9 @@
+namespace NexusCore
+{
+    [default_interface]
+    runtimeclass KeyPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        KeyPage();
+        Int32 MyProperty;
+    }
+}

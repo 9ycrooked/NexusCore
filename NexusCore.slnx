@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="NexusCore/NexusCore.vcxproj" Id="4ef01039-b479-411f-87c5-5cf9536ee95f">
+    <Deploy />
+  </Project>
+</Solution>

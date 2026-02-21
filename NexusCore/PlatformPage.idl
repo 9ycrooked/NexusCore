@@ -1,0 +1,9 @@
+namespace NexusCore
+{
+    [default_interface]
+    runtimeclass PlatformPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        PlatformPage();
+        Int32 MyProperty;
+    }
+}

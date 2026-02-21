@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="NexusCore.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NexusCore"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="NexusCore">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <muxc:TitleBar
+            Grid.Row="0"
+            Title="NexusCore"
+            Subtitle="Preview"
+            IsBackButtonVisible="{x:Bind ContentFrame.CanGoBack, Mode=OneWay}"
+            BackRequested="TitleBar_BackRequested"
+            IsPaneToggleButtonVisible="False">
+            <muxc:TitleBar.IconSource>
+                <BitmapIconSource UriSource="/Assets/Tiles/GalleryIcon.ico"/>
+            </muxc:TitleBar.IconSource>
+            <!--
+            <muxc:TitleBar.Content>
+                <muxc:AutoSuggestBox
+                    x:Name="SearchBox"
+                    Width="360"
+                    VerticalAlignment="Center"
+                    PlaceholderText="搜索..."
+                    QueryIcon="Find"/>
+            </muxc:TitleBar.Content>
+            -->
+            <muxc:TitleBar.RightHeader>
+                <muxc:PersonPicture
+                    x:Name="UserAvatar"
+                    Width="32"
+                    Height="32"
+                    Margin="0,0,12,0"
+                    Initials="Qm"/>
+            </muxc:TitleBar.RightHeader>
+        </muxc:TitleBar>
+
+        <muxc:NavigationView
+            IsSettingsVisible="True"
+            Grid.Row="1"
+            x:Name="NavigationViewControl"
+            ItemInvoked="NavigationViewControl_ItemInvoked"
+            IsBackButtonVisible="Collapsed"
+            OpenPaneLength="200">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Icon="Home" Content="首页" Tag="MainPage" />
+                <muxc:NavigationViewItem Icon="Permissions" Content="API key" Tag="KeyPage" />
+                <muxc:NavigationViewItem Icon="Globe" Content="平台管理" Tag="PlatformPage" />
+            </muxc:NavigationView.MenuItems>
+
+            <Frame x:Name="ContentFrame"/>
+        </muxc:NavigationView>
+    </Grid>
+</Window>
