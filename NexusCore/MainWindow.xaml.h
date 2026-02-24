@@ -14,6 +14,8 @@ namespace winrt::NexusCore::implementation
         void TitleBar_BackRequested(winrt::Microsoft::UI::Xaml::Controls::TitleBar const& sender, 
             winrt::Windows::Foundation::IInspectable const& args);
     private:
+        // 初始化窗口设置的私有函数
+        void InitWindowSettings();
         // 导航到指定页面的辅助函数
         void NavigateToPage(winrt::hstring const& pageName);
     };

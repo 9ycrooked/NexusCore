@@ -22,14 +22,25 @@ namespace winrt::NexusCore::implementation
         // 必须调用 XAML 初始化
         InitializeComponent();
 
+        InitWindowSettings();
+    }
+    // 初始化窗口设置的私有函数
+    void MainWindow::InitWindowSettings()
+    {
         // 导航到默认页面MainPage
         NavigationViewControl().SelectedItem(
             NavigationViewControl().MenuItems().GetAt(0).as<Controls::NavigationViewItem>()
         );
         ContentFrame().Navigate(xaml_typename<NexusCore::MainPage>());
 
-        // 自定义窗口标题栏
+        // 获取 AppWindow 对象
         auto appWindow = this->AppWindow();
+        // 设置窗口大小
+        Windows::Graphics::SizeInt32 size;
+        size.Width = 1500;
+        size.Height = 900;
+        appWindow.Resize(size);
+        // 自定义窗口标题栏
         if (appWindow) // 空值检查；确保成功获取 AppWindow 对象
         {
             auto titleBar = appWindow.TitleBar();
