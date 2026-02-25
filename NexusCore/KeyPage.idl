@@ -4,6 +4,5 @@ namespace NexusCore
     runtimeclass KeyPage : Microsoft.UI.Xaml.Controls.Page
     {
         KeyPage();
-        Int32 MyProperty;
     }
 }

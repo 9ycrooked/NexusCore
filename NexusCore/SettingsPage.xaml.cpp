@@ -21,4 +21,11 @@ namespace winrt::NexusCore::implementation
     {
         throw hresult_not_implemented();
     }
+
+    void winrt::NexusCore::implementation::SettingsPage::themeMode_SelectionChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::SelectionChangedEventArgs const& e)
+    {
+
+    }
+
 }
+

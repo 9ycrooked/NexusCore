@@ -8,12 +8,11 @@ namespace winrt::NexusCore::implementation
     {
         KeyPage()
         {
-            // Xaml objects should not call InitializeComponent during construction.
-            // See https://github.com/microsoft/cppwinrt/tree/master/nuget#initializecomponent
+            // 构造函数中不调用 InitializeComponent()，以遵循 C++/WinRT 的指导原则。
         }
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
+        void OnLoaded(winrt::Windows::Foundation::IInspectable const& sender,
+            winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
     };
 }
 
