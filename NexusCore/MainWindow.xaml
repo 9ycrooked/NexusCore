@@ -24,7 +24,8 @@
             BackRequested="TitleBar_BackRequested"
             IsPaneToggleButtonVisible="False">
             <muxc:TitleBar.IconSource>
-                <BitmapIconSource UriSource="/Assets/Tiles/GalleryIcon.ico"/>
+                <!-- 图标文件暂时移除，避免路径错误 -->
+                <!-- <BitmapIconSource UriSource="/Assets/Tiles/GalleryIcon.ico"/> -->
             </muxc:TitleBar.IconSource>
             <!--
             <muxc:TitleBar.Content>

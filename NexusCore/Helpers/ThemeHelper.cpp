@@ -80,12 +80,29 @@ namespace NexusCore::Helpers
             auto rootElement = content.try_as<winrt::Microsoft::UI::Xaml::FrameworkElement>();
             if (!rootElement) return;
 
+            // 更新窗口主题（核心功能）
+            OutputDebugStringW((L"设置窗口主题为: " + std::to_wstring(static_cast<int>(s_rootTheme)) + L"\n").c_str());
             rootElement.RequestedTheme(s_rootTheme);
+            OutputDebugStringW(L"窗口主题设置完成\n");
+        }
+        catch (...)
+        {
+            // 窗口主题更新失败，记录错误
+            OutputDebugStringW(L"更新窗口主题失败\n");
+        }
+
+        // 标题栏更新是可选的，在当前环境中可能不支持
+        // 如果需要启用，取消下面的注释
+        /*
+        try
+        {
             UpdateTitleBarTheme(window);
         }
         catch (...)
         {
+            // 标题栏更新失败，静默处理
         }
+        */
     }
 
     void ThemeHelper::SaveThemeToSettings()
@@ -202,15 +219,22 @@ namespace NexusCore::Helpers
                 buttonPressedBackground = Windows::UI::ColorHelper::FromArgb(30, 0, 0, 0);
             }
 
-            titleBar.ButtonForegroundColor(buttonForeground);
-            titleBar.ButtonBackgroundColor(buttonBackground);
-            titleBar.ButtonHoverForegroundColor(buttonHoverForeground);
-            titleBar.ButtonHoverBackgroundColor(buttonHoverBackground);
-            titleBar.ButtonPressedForegroundColor(buttonPressedForeground);
-            titleBar.ButtonPressedBackgroundColor(buttonPressedBackground);
+            // 逐个设置标题栏颜色，捕获每个操作的异常
+            try { titleBar.ButtonForegroundColor(buttonForeground); } catch (...) {}
+            try { titleBar.ButtonBackgroundColor(buttonBackground); } catch (...) {}
+            try { titleBar.ButtonHoverForegroundColor(buttonHoverForeground); } catch (...) {}
+            try { titleBar.ButtonHoverBackgroundColor(buttonHoverBackground); } catch (...) {}
+            try { titleBar.ButtonPressedForegroundColor(buttonPressedForeground); } catch (...) {}
+            try { titleBar.ButtonPressedBackgroundColor(buttonPressedBackground); } catch (...) {}
+        }
+        catch (const winrt::hresult_error& e)
+        {
+            // 记录具体错误信息，但不影响核心功能
+            OutputDebugStringW((L"UpdateTitleBarTheme failed: " + e.message() + L"\n").c_str());
         }
         catch (...)
         {
+            // 静默处理其他异常
         }
     }
 }

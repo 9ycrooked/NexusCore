@@ -49,11 +49,17 @@ namespace winrt::NexusCore::implementation
         // 使用 ThemeHelper 更新主题（持久保存到存储）
         ::NexusCore::Helpers::ThemeHelper::RootTheme(desired);
 
-        // Apply to current window
+        // 应用到当前窗口
         auto window = ::NexusCore::Helpers::WinUIWindowHelper::WindowHelper::GetWindowForElement(*this);
         if (window)
         {
+            OutputDebugStringW((L"获取到窗口，准备应用主题: " + tag + L"\n").c_str());
             ::NexusCore::Helpers::ThemeHelper::UpdateThemeForWindow(window);
+            OutputDebugStringW(L"主题已应用到窗口\n");
+        }
+        else
+        {
+            OutputDebugStringW(L"无法获取窗口对象\n");
         }
     }
 
@@ -65,17 +71,25 @@ namespace winrt::NexusCore::implementation
         // 根据保存的主题设置 ComboBox 选择
         if (auto combo = ThemeComboBox())
         {
-            switch (currentTheme)
+            try
             {
-            case ElementTheme::Light:
-                combo.SelectedIndex(1);
-                break;
-            case ElementTheme::Dark:
-                combo.SelectedIndex(2);
-                break;
-            default:
-                combo.SelectedIndex(0); // Default/Auto
-                break;
+                switch (currentTheme)
+                {
+                case ElementTheme::Light:
+                    combo.SelectedIndex(1);
+                    break;
+                case ElementTheme::Dark:
+                    combo.SelectedIndex(2);
+                    break;
+                default:
+                    combo.SelectedIndex(0); // Default/Auto
+                    break;
+                }
+            }
+            catch (...)
+            {
+                // ComboBox 设置失败，静默处理
+                OutputDebugStringW(L"无法设置 ComboBox 选定索引\n");
             }
         }
     }
