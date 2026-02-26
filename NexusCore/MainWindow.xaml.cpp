@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "MainWindow.xaml.h"
+#include "WindowHelper.h"
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
 #endif
@@ -34,12 +35,18 @@ namespace winrt::NexusCore::implementation
         ContentFrame().Navigate(xaml_typename<NexusCore::MainPage>());
 
         // 获取 AppWindow 对象
-        auto appWindow = this->AppWindow();
+        // auto appWindow = this->AppWindow();
+        
+        // 使用 WindowHelper 获取 AppWindow 对象
+        auto appWindow = ::NexusCore::Helpers::WinUIWindowHelper::WindowHelper::GetAppWindow(*this);
         // 设置窗口大小
         Windows::Graphics::SizeInt32 size;
         size.Width = 1500;
         size.Height = 900;
         appWindow.Resize(size);
+
+        // 使用 WindowHelper 设置最小尺寸
+        ::NexusCore::Helpers::WinUIWindowHelper::WindowHelper::SetWindowMinSize(*this, 800.0, 600.0);
         // 自定义窗口标题栏
         if (appWindow) // 空值检查；确保成功获取 AppWindow 对象
         {
