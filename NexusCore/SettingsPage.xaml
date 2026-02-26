@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="NexusCore.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -13,10 +14,10 @@
     <ScrollViewer>
         <StackPanel Padding="20" Spacing="6">
 
-            <TextBlock 
-                Text="个性化" 
-                FontSize="20" 
-                FontWeight="SemiBold" 
+            <TextBlock
+                Text="个性化"
+                FontSize="20"
+                FontWeight="SemiBold"
                 Margin="0,6,0,6" />
 
             <essential:SettingsCard
@@ -25,34 +26,37 @@
                 <essential:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE790;" />
                 </essential:SettingsCard.HeaderIcon>
-                <ComboBox SelectedIndex="0"
-                          Width="120">
-                    <ComboBoxItem 
+                <ComboBox
+                    x:Name="ThemeComboBox"
+                    SelectedIndex="0"
+                    Width="120"
+                    SelectionChanged="ThemeComboBox_SelectionChanged">
+                    <ComboBoxItem
                         x:Uid="ThemesDefault"
                         Content="系统默认"
                         Tag="Default" />
-                    <ComboBoxItem 
+                    <ComboBoxItem
                         x:Uid="ThemesLight"
                         Content="浅色模式"
-                        Tag="Light"/>
+                        Tag="Light" />
                     <ComboBoxItem
                         x:Uid="ThemesDark"
                         Content="深色模式"
-                        Tag="Dark"/>
+                        Tag="Dark" />
                 </ComboBox>
             </essential:SettingsCard>
 
-            <TextBlock 
-                Text="关于应用" 
-                FontSize="20" 
-                FontWeight="SemiBold" 
+            <TextBlock
+                Text="关于应用"
+                FontSize="20"
+                FontWeight="SemiBold"
                 Margin="0,6,0,6" />
 
             <essential:SettingsCard
                 ContentAlignment="Right"
                 Header="更新应用"
                 Description="启用后将自动更新应用">
-                <ToggleSwitch IsOn="True" Margin="0,0,-60,0"/>
+                <ToggleSwitch IsOn="True" Margin="0,0,-60,0" />
             </essential:SettingsCard>
 
         </StackPanel>

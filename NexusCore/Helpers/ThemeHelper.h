@@ -16,48 +16,48 @@ namespace NexusCore::Helpers
     {
     public:
         /// <summary>
-        /// Gets or sets the root theme for the application
+        /// 获取或设置应用程序的根主题
         /// </summary>
         static winrt::Microsoft::UI::Xaml::ElementTheme RootTheme();
         static void RootTheme(winrt::Microsoft::UI::Xaml::ElementTheme value);
 
         /// <summary>
-        /// Gets the actual theme (resolves Default to Light or Dark based on system)
+        /// 获取实际主题（根据系统将默认值解析为浅色或深色）
         /// </summary>
         static winrt::Microsoft::UI::Xaml::ElementTheme ActualTheme();
 
         /// <summary>
-        /// Gets whether the app is using a light theme
+        /// 获取应用是否使用浅色主题
         /// </summary>
         static bool IsDarkTheme();
 
         /// <summary>
-        /// Initialize theme on app startup
+        /// 在应用程序启动时初始化主题
         /// </summary>
         static void Initialize();
 
         /// <summary>
-        /// Update theme for a specific window
+        /// 更新特定窗口的主题
         /// </summary>
         static void UpdateThemeForWindow(winrt::Microsoft::UI::Xaml::Window const& window);
 
         /// <summary>
-        /// Save current theme to local settings
+        /// 将当前主题保存到本地设置
         /// </summary>
         static void SaveThemeToSettings();
 
         /// <summary>
-        /// Load theme from local settings
+        /// 从本地设置加载主题
         /// </summary>
         static winrt::Microsoft::UI::Xaml::ElementTheme LoadThemeFromSettings();
 
         /// <summary>
-        /// Convert ElementTheme to string for UI display
+        /// 将 ElementTheme 转换为字符串以供 UI 显示
         /// </summary>
         static winrt::hstring ThemeToString(winrt::Microsoft::UI::Xaml::ElementTheme theme);
 
         /// <summary>
-        /// Convert string to ElementTheme
+        /// 将字符串转换为 ElementTheme
         /// </summary>
         static winrt::Microsoft::UI::Xaml::ElementTheme StringToTheme(winrt::hstring const& themeString);
 
@@ -68,12 +68,12 @@ namespace NexusCore::Helpers
         static constexpr const wchar_t* THEME_SETTING_KEY = L"AppTheme";
 
         /// <summary>
-        /// Get system's current theme (Light or Dark)
+        /// 获取系统当前主题（浅色或深色）
         /// </summary>
         static winrt::Microsoft::UI::Xaml::ElementTheme GetSystemTheme();
 
         /// <summary>
-        /// Update TitleBar theme for the given window
+        /// 更新给定窗口的标题栏主题
         /// </summary>
         static void UpdateTitleBarTheme(winrt::Microsoft::UI::Xaml::Window const& window);
     };

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "App.xaml.h"
 #include "MainWindow.xaml.h"
+#include "ThemeHelper.h"
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
@@ -37,7 +38,12 @@ namespace winrt::NexusCore::implementation
     /// <param name="e">Details about the launch request and process.</param>
     void App::OnLaunched([[maybe_unused]] LaunchActivatedEventArgs const& e)
     {
+        // 初始化主题系统（加载保存的主题设置）
+        ::NexusCore::Helpers::ThemeHelper::Initialize();
+        // 创建并激活窗口
         window = make<MainWindow>();
         window.Activate();
+        // 应用主题到窗口
+        ::NexusCore::Helpers::ThemeHelper::UpdateThemeForWindow(window);
     }
 }
