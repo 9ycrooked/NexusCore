@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "ThemeHelper.h"
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.UI.ViewManagement.h>
@@ -36,7 +36,7 @@ namespace NexusCore::Helpers
         {
             return GetSystemTheme();
         }
-        // 如果不是"默认"，返回用户选择的主题（Light 或 Dark）
+        // 如果不是"默认", 返回用户选择的主题（Light 或 Dark）
         return s_rootTheme;
     }
 
@@ -93,7 +93,8 @@ namespace NexusCore::Helpers
         try
         {
             auto localSettings = ApplicationData::Current().LocalSettings();
-            auto value = localSettings.Values();
+            auto values = localSettings.Values();
+            int32_t themeValue = static_cast<int32_t>(s_rootTheme);
             values.Insert(THEME_SETTING_KEY, box_value(themeValue));
         }
         catch (...)
@@ -108,14 +109,14 @@ namespace NexusCore::Helpers
             // 提供对本地设置存储的访问入口
             auto localSettings = ApplicationData::Current().LocalSettings();
             // 返回一个可操作的键值对集合，用于读取/写入设置
-            auto value = localSettings.Values();
+            auto values = localSettings.Values();
             // 防止读取不存在的键导致异常
-            if (value.HasKey(THEME_SETTING_KEY))
+            if (values.HasKey(THEME_SETTING_KEY))
             {
                 // 获取存储的主题值（被包装成 WinRT 类型）
-                auto value = value.Lookup(THEME_SETTING_KEY);
+                auto stored = values.Lookup(THEME_SETTING_KEY);
                 // 将存储的整数转换回原生 C++ 类型
-                int32_t themeValue = unbox_value<int32_t>(value);
+                int32_t themeValue = unbox_value<int32_t>(stored);
                 //将整数 0 / 1 / 2 转换为 ElementTheme::Default / Light / Dark
                 return static_cast<ElementTheme>(themeValue);
             }

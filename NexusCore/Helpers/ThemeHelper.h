@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <winrt/Microsoft.UI.Xaml.h>
 #include <winrt/Windows.Storage.h>

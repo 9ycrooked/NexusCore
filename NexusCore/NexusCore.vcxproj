@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Helpers\ThemeHelper.h" />
+    <ClInclude Include="Helpers\WindowHelper.h" />
     <ClInclude Include="KeyPage.xaml.h">
       <DependentUpon>KeyPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Helpers\ThemeHelper.cpp" />
+    <ClCompile Include="Helpers\WindowHelper.cpp" />
     <ClCompile Include="KeyPage.xaml.cpp">
       <DependentUpon>KeyPage.xaml</DependentUpon>
       <SubType>Code</SubType>
