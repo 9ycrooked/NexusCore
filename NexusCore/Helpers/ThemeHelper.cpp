@@ -4,6 +4,7 @@
 #include <winrt/Windows.UI.ViewManagement.h>
 #include <winrt/Microsoft.UI.h>
 #include <winrt/Microsoft.UI.Windowing.h>
+#include <iostream>
 
 using namespace winrt;
 using namespace winrt::Microsoft::UI;
@@ -99,6 +100,7 @@ namespace NexusCore::Helpers
         }
         catch (...)
         {
+            std::cout << "发生了未知异常" << std::endl;
             // 标题栏更新失败，静默处理
         }
     }
