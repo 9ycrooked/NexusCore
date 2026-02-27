@@ -93,7 +93,6 @@ namespace NexusCore::Helpers
 
         // 标题栏更新是可选的，在当前环境中可能不支持
         // 如果需要启用，取消下面的注释
-        /*
         try
         {
             UpdateTitleBarTheme(window);
@@ -102,7 +101,6 @@ namespace NexusCore::Helpers
         {
             // 标题栏更新失败，静默处理
         }
-        */
     }
 
     void ThemeHelper::SaveThemeToSettings()
