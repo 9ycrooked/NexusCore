@@ -21,8 +21,8 @@ namespace winrt::NexusCore::implementation
     {
         InitializeComponent();
 
-        // // 注册 Loaded 事件，在页面加载时恢复主题状态
-        // Loaded({ this, &SettingsPage::OnSettingsPageLoaded });
+        // 注册 Loaded 事件，在页面加载时恢复主题状态
+        Loaded({ this, &SettingsPage::OnSettingsPageLoaded });
     }
 
     void winrt::NexusCore::implementation::SettingsPage::ThemeComboBox_SelectionChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::SelectionChangedEventArgs const& /*e*/)

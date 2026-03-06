@@ -28,7 +28,6 @@
                 </essential:SettingsCard.HeaderIcon>
                 <ComboBox
                     x:Name="ThemeComboBox"
-                    SelectedIndex="0"
                     Width="120"
                     SelectionChanged="ThemeComboBox_SelectionChanged">
                     <ComboBoxItem
