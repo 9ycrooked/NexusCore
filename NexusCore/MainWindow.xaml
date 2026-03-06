@@ -5,16 +5,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NexusCore"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:essential="using:WinUI3Package"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title="NexusCore">
 
-    <Grid>
+    <Grid
+        x:Name="RootGrid"
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <essential:WindowCaptionButtonThemeWorkaround Window="{x:Bind}" />
 
         <muxc:TitleBar
             Grid.Row="0"
@@ -22,7 +27,8 @@
             Subtitle="Preview"
             IsBackButtonVisible="{x:Bind ContentFrame.CanGoBack, Mode=OneWay}"
             BackRequested="TitleBar_BackRequested"
-            IsPaneToggleButtonVisible="False">
+            IsPaneToggleButtonVisible="False"
+            Background="{ThemeResource SystemChromeMediumColor}">
             <muxc:TitleBar.IconSource>
                 <!-- 图标文件暂时移除，避免路径错误 -->
                 <!-- <BitmapIconSource UriSource="/Assets/Tiles/GalleryIcon.ico"/> -->
