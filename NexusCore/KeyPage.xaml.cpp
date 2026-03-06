@@ -12,13 +12,11 @@ using namespace Microsoft::UI::Xaml;
 
 namespace winrt::NexusCore::implementation
 {
-    int32_t KeyPage::MyProperty()
+    void KeyPage::OnLoaded(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
     {
-        throw hresult_not_implemented();
-    }
-
-    void KeyPage::MyProperty(int32_t /* value */)
-    {
-        throw hresult_not_implemented();
+        // 在这里进行其他初始化操作，例如设置默认值、绑定数据等
     }
 }
+
+
+

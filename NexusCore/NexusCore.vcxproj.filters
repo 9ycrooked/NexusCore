@@ -17,6 +17,12 @@
     <Page Include="SettingsPage.xaml">
       <Filter>Views</Filter>
     </Page>
+    <Page Include="Styles\SettingsStyles.xaml">
+      <Filter>Styles</Filter>
+    </Page>
+    <Page Include="Styles\CustomThemeBrushes.xaml">
+      <Filter>Styles</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
@@ -24,9 +30,21 @@
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="Helpers\ThemeHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\WindowHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Helpers\ThemeHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\WindowHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
@@ -57,6 +75,12 @@
     </Filter>
     <Filter Include="Views">
       <UniqueIdentifier>{7e7f1ba7-0c77-494e-8891-cb88b3fc0e22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Styles">
+      <UniqueIdentifier>{1066e973-88c5-49d1-850b-03f301e59b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{78ff861f-c70d-49b7-8ed8-8342c885be80}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

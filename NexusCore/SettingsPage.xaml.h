@@ -6,14 +6,11 @@ namespace winrt::NexusCore::implementation
 {
     struct SettingsPage : SettingsPageT<SettingsPage>
     {
-        SettingsPage()
-        {
-            // Xaml objects should not call InitializeComponent during construction.
-            // See https://github.com/microsoft/cppwinrt/tree/master/nuget#initializecomponent
-        }
+        SettingsPage();
 
-        int32_t MyProperty();
-        void MyProperty(int32_t value);
+        void ThemeComboBox_SelectionChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::Controls::SelectionChangedEventArgs const& e);
+        
+        void OnSettingsPageLoaded(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
     };
 }
 
